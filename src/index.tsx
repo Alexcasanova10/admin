@@ -12,8 +12,7 @@ import store, { RootState } from './Redux/store';
 import theme from "./flowbite-theme";
 
 import SignInPage from "./pages/authentication/sign-in";
-import SignUpPage from "./pages/authentication/sign-up";
-
+ 
 import DashboardPage from "./pages";
 
 import EcommerceProductsPage from "./pages/e-commerce/productos";
@@ -30,8 +29,7 @@ const AppRoutes = () => {
     <Routes>
       {/* Rutas públicas */}
       <Route path="/sign-in" element={userInfo ? <Navigate to="/dashboard" replace /> : <SignInPage />} />
-      <Route path="/sign-up" element={userInfo ? <Navigate to="/dashboard" replace /> : <SignUpPage />} />
-
+ 
       {/* Rutas protegidas (si no hay userInfo, redirige al login) */}
       <Route path="/dashboard" element={userInfo ? <DashboardPage /> : <Navigate to="/sign-in" replace />} />
       <Route path="/productos" element={userInfo ? <EcommerceProductsPage /> : <Navigate to="/sign-in" replace />} />

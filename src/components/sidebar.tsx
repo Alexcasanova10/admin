@@ -13,7 +13,7 @@ import {
   HiUsers,
 } from "react-icons/hi";
 import { CiLogout } from "react-icons/ci";
-import { FaWarehouse } from "react-icons/fa";
+import { FaWarehouse, FaTag } from "react-icons/fa";
 import { MdOutlineLocalShipping} from "react-icons/md";
 import { TbBuildingFactory2 } from "react-icons/tb";
 import { MdHome } from "react-icons/md";
@@ -65,7 +65,7 @@ const ExampleSidebar: FC = function () {
               </Sidebar.Item>
               <Sidebar.Item
                 href="/categorias"
-                icon={FaWarehouse}
+                icon={FaTag}
                 className={
                   "/e-commerce/products" === currentPage
                     ? "bg-gray-100 dark:bg-gray-700"

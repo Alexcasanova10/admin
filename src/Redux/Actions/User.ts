@@ -9,60 +9,10 @@ export const USER_LOGOUT = "USER_LOGOUT";
 export const USER_REGISTER_SUCCESS = "USER_REGISTER_SUCCESS";
 export const USER_AUTH_FAILURE = "USER_AUTH_FAILURE";
 
-// Acción para el login
-// export const loginAction = (email: string, password: string) => async (dispatch: Dispatch) => {
-//   try {
-//     const response = await fetch(`${api}/api/admin/login`, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ email, password }),
-//     });
-
-//     if (!response.ok) {
-//       const error = await response.json();
-//       const msg = error.message;
-//       throw new Error( `error es ${msg}`  );
-//     }
-
-//     const data = await response.json();
-
-//     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
-//     localStorage.setItem("userInfo", JSON.stringify(data)); // Guardar en localStorage
-
-//     // Redirigir al dashboard si el login es exitoso
-//     redirect("/dashboard");
-//   } catch (error: any) {
-//     dispatch({ type: USER_AUTH_FAILURE, payload: error.message });
-//     alert("Error de autenticación: " + error.message);
-//   }
-// };
-// export const loginAction = (email: string, password: string) => async (dispatch: Dispatch) => {
-//   try {
-//     const response = await fetch(`${api}/api/admin/login`, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ email, password }),
-//     });
-
-//     const data = await response.json();
-//     if (!response.ok) throw new Error(data.message);
-
-//     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
-//     localStorage.setItem("userInfo", JSON.stringify(data));
-//     window.location.href = "/dashboard"; // Redirige manualmente al dashboard
-//   } catch (error: any) {
-//     dispatch({ type: USER_AUTH_FAILURE, payload: error.message });
-//     alert("Error al iniciar sesión: " + error.message);
-//   }
-// };
-
-
 export const loginAction = (email: string, password: string) => async (dispatch: Dispatch) => {
   try {
     // Realiza la solicitud POST con axios
-    const response = await api.post("/api/admin/login", { email, password });
+    const response = await api.post("/api/admin/auth/login", { email, password });
 
     // Despacha el éxito con los datos de la respuesta
     dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data });

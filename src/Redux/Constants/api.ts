@@ -1,9 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:9000", 
-  // baseURL: "https://mex-shoes.vercel.app", 
-
+  baseURL: "http://localhost:5000", 
+  // baseURL: "vercl route"
 });
 
 export default api;
